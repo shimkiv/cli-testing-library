@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2022",
     "module": "commonjs",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "listEmittedFiles": true,
-    "declaration": true,
+    "declaration": true
   },
   "include": ["**/*"],
   "exclude": ["node_modules/**/*"]
