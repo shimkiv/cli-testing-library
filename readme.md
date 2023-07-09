@@ -4,7 +4,7 @@
 </p>
 <p align="center">
     <a href="https://www.npmjs.com/package/@shimkiv/cli-testing-library"><img src="https://img.shields.io/npm/v/@shimkiv/cli-testing-library.svg?color=brightgreen" alt="npm version"></a>
-    <a href="https://github.com/shimkiv/LibName/blob/master/LICENSE"><img src="https://img.shields.io/github/license/shimkiv/cli-testing-library.svg" alt="License"></a>
+    <a href="https://github.com/shimkiv/cli-testing-library/blob/master/LICENSE.md"><img src="https://img.shields.io/github/license/shimkiv/cli-testing-library.svg" alt="License"></a>
     <a href="https://github.com/shimkiv/cli-testing-library/actions/workflows/test.yml"><img src="https://github.com/shimkiv/cli-testing-library/actions/workflows/test.yml/badge.svg" alt="Test"></a>
 </p>
 
@@ -15,7 +15,7 @@ it('testing CLI the way they are used', async () => {
   await execute('node', './my-cli.js generate-file file.txt');
 
   expect(ls('./')).toBe(`
-        Array [
+        [
           "file.txt",
         ]
     `);
