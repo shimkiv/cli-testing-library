@@ -12,9 +12,11 @@ const keyMap = {
   pageUp: '\x1b\x5b\x35\x7e',
   pageDown: '\x1b\x5b\x36\x7e',
   space: '\x20',
+  tab: '\x09',
+  ctrlc: '\x03',
 };
 
 export type KeyMap = keyof typeof keyMap;
-export const keyToHEx = (key: KeyMap) => {
+export const convertKeyToHex = (key: KeyMap) => {
   return keyMap[key];
 };

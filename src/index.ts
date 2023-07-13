@@ -16,7 +16,7 @@ import path from 'path';
 import { promisify } from 'util';
 import { Output, OutputType } from './Output';
 import { ExecResult, ExitCode, createExecute } from './createExecute';
-import { KeyMap, keyToHEx } from './keyToHEx';
+import { KeyMap, convertKeyToHex } from './keyToHex';
 import { CLITestEnvironment, SpawnResult } from './types';
 import { checkRunningProcess } from './utils';
 
@@ -127,12 +127,10 @@ export const prepareEnvironment = async (): Promise<CLITestEnvironment> => {
           return currentProcessPromise;
         }
 
-        return new Promise((resolve) => {
-          resolve({
-            code: exitCodeRef.current as ExitCode,
-            stdout: output.stdout,
-            stderr: output.stderr,
-          });
+        return Promise.resolve({
+          code: exitCodeRef.current as ExitCode,
+          stdout: output.stdout,
+          stderr: output.stderr,
         });
       };
       const writeText = async (input: string): Promise<void> => {
@@ -145,9 +143,12 @@ export const prepareEnvironment = async (): Promise<CLITestEnvironment> => {
       const pressKey = async (input: KeyMap): Promise<void> => {
         return new Promise((resolve) => {
           if (checkRunningProcess(currentProcessRef)) {
-            currentProcessRef.current.stdin.write(keyToHEx(input), () => {
-              resolve();
-            });
+            currentProcessRef.current.stdin.write(
+              convertKeyToHex(input),
+              () => {
+                resolve();
+              }
+            );
           }
         });
       };

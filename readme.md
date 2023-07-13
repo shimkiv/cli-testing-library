@@ -189,6 +189,8 @@ The function return a bunch of methods to communicate/control the tested CLI pro
   - `pageUp`
   - `pageDown`
   - `space`
+  - `tab`
+  - `ctrlc`
 
 ```javascript
 it('should ask for name and wait for input string', async () => {

@@ -1,5 +1,5 @@
 import { ExecResult, ExitCode } from './createExecute';
-import { KeyMap } from './keyToHEx';
+import { KeyMap } from './keyToHex';
 
 export type SpawnResult = {
   wait: (delay: number) => Promise<void>;
